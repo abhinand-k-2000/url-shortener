@@ -72,7 +72,7 @@ const ShowLink = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  localhost:5173/{url.shortUrl}
+                  {FRONTENDPOINT}/{url.shortUrl}
                 </a>
             <CopyToClipboard text={`${FRONTENDPOINT}/${url.shortUrl}`} onCopy={onCopyText}>
                 <ContentCopyIcon className="cursor-pointer ml-8"/>
