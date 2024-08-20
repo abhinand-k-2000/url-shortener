@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ENDPOINT } from "../constans";
+import { ENDPOINT, FRONTENDPOINT } from "../constans";
 import {CopyToClipboard} from "react-copy-to-clipboard"
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
@@ -67,14 +67,14 @@ const ShowLink = () => {
                 <h2 className="text-xl font-semibold mb-2">Short Link:</h2>
 
                 <a
-                  href={`http://localhost:5173/${url.shortUrl}`}
+                  href={`${FRONTENDPOINT}/${url.shortUrl}`}
                   className="text-green-400 hover:text-green-300"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   localhost:5173/{url.shortUrl}
                 </a>
-            <CopyToClipboard text={`http://localhost:5173/${url.shortUrl}`} onCopy={onCopyText}>
+            <CopyToClipboard text={`${FRONTENDPOINT}/${url.shortUrl}`} onCopy={onCopyText}>
                 <ContentCopyIcon className="cursor-pointer ml-8"/>
             </CopyToClipboard>
             {
