@@ -38,7 +38,9 @@ export const handleRedirectUrl = async (req: Request, res: Response) => {
             return res.status(404).json({success: false, message: "Url not found!"})
         }
         await UrlModel.findOneAndUpdate({shortUrl: shortId}, {$inc: {clicks: 1}});
-         res.redirect(urlExists.redirectUrl)
+
+        return res.status(201).json({success: true, url: urlExists})
+        //  res.redirect(urlExists.redirectUrl)
     }catch(error){
         console.log(error)
     }
@@ -53,6 +55,18 @@ export const handleUrlAnalytics = async(req: Request, res: Response) => {
         if(!urlExists) return res.status(404).json({success: false, message: "Url not found!"})
 
         return res.status(200).json({success: true, totalCount: urlExists.clicks})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const handleGetUrl = async(req: Request, res: Response) => {
+    try {
+        const {id} = req.params;
+        console.log('eh')
+        if(!id) return res.status(400).json({success: false, message: "Id not found"})
+        const url = await UrlModel.findById(id);
+        return res.status(200).json({success: true, url})
     } catch (error) {
         console.log(error)
     }

@@ -1,10 +1,11 @@
 import express from "express";
 const router = express.Router()
-import {handleGenerateShortUrl, handleRedirectUrl, handleUrlAnalytics} from "../controller/urlController"
+import {handleGenerateShortUrl, handleRedirectUrl, handleUrlAnalytics, handleGetUrl} from "../controller/urlController"
 
 router.post('/', handleGenerateShortUrl);
-router.get('/:shortId', handleRedirectUrl)
-router.get('/analytics/:shortId', handleUrlAnalytics)
+router.get('/show-link/:id', handleGetUrl)
+router.get('/:shortId', handleRedirectUrl);
+router.get('/analytics/:shortId', handleUrlAnalytics);
 
 
 export default router
