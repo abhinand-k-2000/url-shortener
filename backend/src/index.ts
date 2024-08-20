@@ -3,6 +3,9 @@ const app = express()
 import urlRouter from "./routes/urlRoute"
 import cors from "cors"
 import dbConnect from "./config/dbConnect";
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const PORT = process.env.PORT || 8000;
 dbConnect()

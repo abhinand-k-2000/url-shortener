@@ -33,7 +33,6 @@ export const handleRedirectUrl = async (req: Request, res: Response) => {
         if(!shortId) return res.status(400).json({success: false, message: "Short URL not found!"})
         
         const urlExists = await UrlModel.findOne({shortUrl: shortId});
-        console.log('url: ', urlExists)
         if(!urlExists){
             return res.status(404).json({success: false, message: "Url not found!"})
         }
@@ -63,7 +62,6 @@ export const handleUrlAnalytics = async(req: Request, res: Response) => {
 export const handleGetUrl = async(req: Request, res: Response) => {
     try {
         const {id} = req.params;
-        console.log('eh')
         if(!id) return res.status(400).json({success: false, message: "Id not found"})
         const url = await UrlModel.findById(id);
         return res.status(200).json({success: true, url})

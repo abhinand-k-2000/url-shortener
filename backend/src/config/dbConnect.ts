@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 const dbConnect = async () => {
     try {
-       await mongoose.connect("mongodb://localhost:27017/url-shortener")
+       await mongoose.connect(process.env.MONGO_URL!)
        console.log("monogoDB connected")
     } catch (error) {
         console.log(error)
