@@ -67,7 +67,7 @@ const ShowLink = () => {
                 <h2 className="text-xl font-semibold mb-2">Short Link:</h2>
 
                 <a
-                  href={`${FRONTENDPOINT}/${url.shortUrl}`}
+                  href={`${FRONTENDPOINT}/${url.shortUrl}`} 
                   className="text-green-400 hover:text-green-300"
                   target="_blank"
                   rel="noopener noreferrer"
